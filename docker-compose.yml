@@ -19,6 +19,8 @@ services:
       - media_volume:/web/media
     env_file:
       - .env
+    environment:
+      - VIRTUAL_HOST=${ALLOWED_HOST}
     command: >
       bash -c "./manage.py collectstatic --noinput && ./manage.py migrate  && gunicorn -b 0.0.0.0:8000 web.wsgi:application"
 
@@ -29,10 +31,11 @@ services:
     volumes:
       - static_volume:/web/static
       - media_volume:/web/media
-    depends_on:
-      - web
     ports:
       - "80:80"
+    depends_on:
+      - web
+
 
 volumes:
   static_volume:
