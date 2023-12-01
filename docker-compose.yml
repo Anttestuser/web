@@ -12,17 +12,14 @@ services:
       context: .
     container_name: WEB
     image: web_fox4
+    entrypoint: /web/start.sh
     depends_on:
       - db
     volumes:
-      - static_volume:/web/static
-      - media_volume:/web/media
+      - static:/web/static
+      - media:/web/media
     env_file:
       - .env
-    environment:
-      - VIRTUAL_HOST=${ALLOWED_HOST}
-    command: >
-      bash -c "./manage.py collectstatic --noinput && ./manage.py migrate  && gunicorn -b 0.0.0.0:8000 web.wsgi:application"
 
   nginx:
     build:
@@ -38,6 +35,6 @@ services:
 
 
 volumes:
-  static_volume:
-  media_volume:
+  static:
+  media:
 

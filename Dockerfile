@@ -1,26 +1,13 @@
-FROM python:3.10.9
-
-SHELL ["/bin/bash", "-c"]
-
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-EXPOSE 8000
-
-RUN pip install --upgrade pip
-
-RUN apt update
-
-RUN useradd -rms /bin/bash web_user && chmod 777 /opt /run
+FROM python:3.10.9-slim
 
 WORKDIR /web
 
-RUN mkdir /web/static && mkdir /web/media && chown -R web_user:web_user /web && chmod 755 /web
+COPY ./requirements.txt .
 
-COPY --chown=web_user:web_user . .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+COPY . .
 
-USER web_user
+EXPOSE 8000
 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "web.wsgi.application"]
+RUN chmod a+x /web/start.sh
