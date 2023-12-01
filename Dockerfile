@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 
 RUN apt update
 
-RUN adduser --disabled-password web_user && chmod 777 /opt /run
+RUN useradd -rms /bin/bash web_user && chmod 777 /opt /run
 
 WORKDIR /web
 
