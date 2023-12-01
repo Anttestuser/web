@@ -29,7 +29,7 @@ services:
       - static:/web/static
       - media:/web/media
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - web
 
