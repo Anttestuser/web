@@ -11,16 +11,17 @@ RUN pip install --upgrade pip
 
 RUN apt update
 
-RUN useradd -rms /bin/bash foxuser && chmod 777 /opt /run
+RUN useradd -rms /bin/bash web_user && chmod 777 /opt /run
 
 WORKDIR /web
 
-RUN mkdir /web/static && mkdir /web/media && chown -R foxuser:foxuser /web && chmod 755 /web
+RUN mkdir /web/static && mkdir /web/media && chown -R web_user:web_user /web && chmod 755 /web
+RUN mkdir /fox/static && mkdir /fox/media && chown -R web_user:web_user /fox && chmod 755 /fox
 
-COPY --chown=web:web . .
+COPY --chown=web_user:web_user . .
 
 RUN pip install -r requirements.txt
 
-USER foxuser
+USER web_user
 
 CMD ["gunicorn", "-b", "0.0.0.0:8001", "web.wsgi.application"]

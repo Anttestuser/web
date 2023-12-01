@@ -11,6 +11,7 @@ services:
     build:
       context: .
     container_name: WEB
+    image: web_fox4
     depends_on:
       - db
     volumes:
@@ -19,7 +20,7 @@ services:
     env_file:
       - .env
     command: >
-      bash -c "./manage.py collectstatic --noinput && ./manage.py migrate && gunicorn -b 0.0.0.0:8000 web.wsgi:application"
+      bash -c "./manage.py collectstatic --noinput && ./manage.py migrate  && gunicorn -b 0.0.0.0:8000 web.wsgi:application"
 
   nginx:
     build:
