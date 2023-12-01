@@ -26,8 +26,8 @@ services:
       context: ./nginx/
     container_name: NGINX
     volumes:
-      - static_volume:/web/static
-      - media_volume:/web/media
+      - static:/web/static
+      - media:/web/media
     ports:
       - "80:80"
     depends_on:
