@@ -23,4 +23,6 @@ RUN pip install -r requirements.txt
 
 USER web_user
 
+RUN chmod a+x /web/
+
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "web.wsgi.application"]
