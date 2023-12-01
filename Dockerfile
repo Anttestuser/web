@@ -17,7 +17,7 @@ WORKDIR /web
 
 RUN mkdir /web/static && mkdir /web/media && chown -R foxuser:foxuser /web && chmod 755 /web
 
-COPY --chown=foxuser:foxuser . .
+COPY --chown=web:web . .
 
 RUN pip install -r requirements.txt
 
