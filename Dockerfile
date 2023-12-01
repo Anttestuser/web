@@ -23,4 +23,4 @@ RUN pip install -r requirements.txt
 
 USER foxuser
 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "web.wsgi.application"]
+CMD ["gunicorn", "-b", "0.0.0.0:8001", "web.wsgi.application"]
