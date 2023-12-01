@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 
 RUN apt update
 
-RUN adduser -rms /bin/bash web_user && chmod 777 /opt /run
+RUN adduser --disabled-password web_user && chmod 777 /opt /run
 
 WORKDIR /web
 
@@ -22,7 +22,5 @@ COPY --chown=web_user:web_user . .
 RUN pip install -r requirements.txt
 
 USER web_user
-
-RUN chmod a+x /web/
 
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "web.wsgi.application"]
