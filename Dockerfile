@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 
 RUN apt update
 
-RUN useradd -rms /bin/bash foxuser && chmod 777 /opt /run
+RUN useradd -rms /bin/bash foxuser && chmod 777 /opt/run
 
 WORKDIR /web
 
