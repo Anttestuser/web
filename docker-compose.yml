@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:15-alpine3.16
+    container_name: DB
+    volumes:
+      - ~/.pg/pg_data/web:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  web:
+    build:
+      context: .
+    container_name: WEB
+    depends_on:
+      - db
+    volumes:
+      - static_volume:/web/static
+      - media_volume:/web/media
+    env_file:
+      - .env
+    command:
+      - bash -c "./manage.py collectstatic --noinput && ./manage.py migrate && gunicorn -b 0.0.0.0:8000 web.wsgi.application"
+
+  nginx:
+    build:
+      context: ./nginx/
+    container_name: NGINX
+    volumes:
+      - static_volume:/web/static
+      - media_volume:/web/media
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+
+volumes:
+  static_volume:
+  media_volume:
+
