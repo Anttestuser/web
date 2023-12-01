@@ -16,7 +16,6 @@ RUN useradd -rms /bin/bash web_user && chmod 777 /opt /run
 WORKDIR /web
 
 RUN mkdir /web/static && mkdir /web/media && chown -R web_user:web_user /web && chmod 755 /web
-RUN mkdir /fox/static && mkdir /fox/media && chown -R web_user:web_user /fox && chmod 755 /fox
 
 COPY --chown=web_user:web_user . .
 
