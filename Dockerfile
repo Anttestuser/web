@@ -13,6 +13,8 @@ RUN apt update
 
 RUN useradd -rms /bin/bash foxuser && chmod 777 /opt /run
 
+WORKDIR /web
+
 RUN mkdir /web/static && mkdir /web/media && chown -R foxuser:foxuser /web && chmod 755 /web
 
 COPY --chown=foxuser:foxuser . .
