@@ -17,7 +17,6 @@ services:
       - db
     volumes:
       - static:/web/static
-      - media:/web/media
     env_file:
       - .env
 
@@ -27,7 +26,6 @@ services:
     container_name: NGINX
     volumes:
       - static:/web/static
-      - media:/web/media
     ports:
       - "8080:80"
     depends_on:
@@ -36,5 +34,4 @@ services:
 
 volumes:
   static:
-  media:
 
