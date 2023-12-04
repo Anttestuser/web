@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static_files %}
 
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=" {% static 'hey/css/index.css' %}">
+    <link rel="stylesheet" href=" {% static_files 'hey/css/index.css' %}">
     <title>Hello</title>
 </head>
 <body>
@@ -13,6 +13,6 @@
 <h1>SOBAKEN</h1>
 
 <ul>SObaKEn</ul>
-<img src="{% static 'hey/images/pes.jpg' %}" width="600" height="400" alt="siba-iny">
+<img src="{% static_files 'hey/images/pes.jpg' %}" width="600" height="400" alt="siba-iny">
 </body>
 </html>
