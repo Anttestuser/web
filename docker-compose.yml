@@ -35,5 +35,5 @@ services:
 
 
 volumes:
-  volume:
+  static:
 
