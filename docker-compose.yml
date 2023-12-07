@@ -25,15 +25,31 @@ services:
   nginx:
     image: nginx
     container_name: NGINX
+    restart: always
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - static:/web/static
+      - media:/web/media
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - web
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot/ --email pyth44a@gmail.com --agree-tos --no-eff-email -d www.fox4.ru
+    depends_on:
+      - nginx
+
 
 
 volumes:
   static:
+  media:
 
