@@ -6,8 +6,6 @@ COPY ./requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY --chown=root:root . .
-RUN chmod -R 777 .
 
 EXPOSE 8000
 
