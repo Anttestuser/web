@@ -1,3 +1,3 @@
-FROM jwilder/nginx-proxy:1.2
+FROM jwilder/nginx-proxy
 
 COPY default_location /etc/nginx/vhost.d/default_location

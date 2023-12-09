@@ -44,7 +44,7 @@ services:
       - "443:443"
 
   acme_companion:
-    image: nginxproxy/acme-companion:2.2
+    image: nginxproxy/acme-companion
     container_name: ACME_companion
     volumes_from:
       - nginx
