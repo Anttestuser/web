@@ -37,7 +37,6 @@ services:
       - certs:/etc/nginx/certs
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "80:80"
@@ -46,7 +45,7 @@ services:
       - web
 
   acme_companion:
-    image: nginxproxy/acme-companion
+    image: nginxproxy/acme-companion:2.2
     container_name: ACME_companion
     volumes_from:
       - nginx
