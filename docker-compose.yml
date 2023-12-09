@@ -29,8 +29,7 @@ services:
   nginx:
     build:
       context: ./nginx/
-    container_name: NGINX_jwilder
-    restart: always
+    container_name: NGINX_jw
     volumes:
       - static:/web/static
       - media:/web/media
@@ -38,11 +37,11 @@ services:
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    depends_on:
+      - web
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - web
 
   acme_companion:
     image: nginxproxy/acme-companion:2.2
