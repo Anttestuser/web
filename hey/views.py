@@ -6,4 +6,6 @@ def show_index(request):
 
 
 def show_input(request):
+    # if request.method == 'POST':
+
     return render(request, 'input.html')

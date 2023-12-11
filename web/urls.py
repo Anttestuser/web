@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from hey.views import show_index
+from hey.views import show_index, show_input
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', show_index)
+    path('', show_index),
+    path('upload/', show_input),
 ]
