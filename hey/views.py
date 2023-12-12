@@ -32,6 +32,6 @@ def show_output(request):
 
 def show_output(request):
     if request.method == 'GET':
-        images = UploadFiles.objects.all().count()
+        images = UploadFiles.objects.all()
         return render(request, 'output.html',
                       {'images': images})
