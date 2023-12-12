@@ -23,7 +23,7 @@ def show_input(request):
 
 
 def success(request):
-    return HttpResponse('successfully uploaded')
+    return render(request, 'output.html')
 
 
 def show_output(request):
