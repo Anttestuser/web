@@ -10,7 +10,7 @@
     {% for image in images %}
         <div class="col-md-4">
             {{ image.name }}
-            <img src="{{ images.file.url }}" class="img-responsive" />
+            <img src="{{ MEDIA_URL }} {{ images.file.url }}" class="img-responsive" />
         </div>
     {% endfor %}
 
