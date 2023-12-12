@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from hey.views import show_index, show_input
+from hey.views import show_index, show_input, success, show_output
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', show_index),
-    path('upload/', show_input),
+    path('input', show_input),
+    path('success', success, name='success'),
+    path('output', show_output, name='output'),
 ]
