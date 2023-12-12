@@ -8,10 +8,8 @@
 <h1>OUTPUT MEDIA</h1>
 
     {% for image in images %}
-        <div class="col-md-4">
-            {{ image.name }}
-            <img src="{{ MEDIA_URL }} {{ images.file.url }}" class="img-responsive" />
-        </div>
+        {{ image.name }}
+        <img src="{{ MEDIA_URL }}{{ images.file.url }}" class="img" />
     {% endfor %}
 
 </body>
