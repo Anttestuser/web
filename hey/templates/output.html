@@ -7,9 +7,9 @@
 <body>
 <h1>OUTPUT MEDIA</h1>
 
-    {% for image in images %}
+    {% for i in images %}
         {{ image.name }}
-        <img src="{{ MEDIA_URL }}{{ images.file.url }}" class="img" />
+        <img src="{{ i.file.url }}" class="img" />
     {% endfor %}
 
 </body>
