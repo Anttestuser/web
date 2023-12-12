@@ -23,7 +23,7 @@ def show_input(request):
 
 
 def success(request):
-    return render(request, 'output.html')
+    return render(request, 'index.html')
 
 
 def show_output(request):
