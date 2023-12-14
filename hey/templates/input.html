@@ -5,11 +5,11 @@
     <title>Data enter</title>
 </head>
 <body>
-<h1>INPUT MEDIA</h1>
+<h1>Download image</h1>
     <form method = "post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit">Download</button>
     </form>
 
 </body>

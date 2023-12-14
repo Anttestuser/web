@@ -5,11 +5,11 @@
     <title>OUTPUT</title>
 </head>
 <body>
-<h1>OUTPUT MEDIA</h1>
+<h1>Upload images images</h1>
 
     {% for i in images %}
-        {{ image.name }}
-        <img src="{{ i.file.url }}" class="img" width="150" height="150" />
+        {{ i.name }}
+        <img src="{{ i.file.url }}" class="img" width="200" height="200" />
     {% endfor %}
 
 </body>
