@@ -2,6 +2,7 @@ services:
   db:
     image: postgres:15
     container_name: DB
+    restart: always
     volumes:
       - ~/.pg/pg_data/web:/var/lib/postgresql/data
     env_file:
@@ -11,6 +12,7 @@ services:
     build:
       context: .
     container_name: WEB
+    restart: always
     image: web_fox4
     entrypoint: /web/start.sh
     ports:
@@ -30,6 +32,7 @@ services:
     build:
       context: ./nginx/
     container_name: NGINX_jw
+    restart: always
     volumes:
       - static:/web/static
       - media:/web/media
